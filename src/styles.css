@@ -1,0 +1,28 @@
+/* You can add global styles to this file, and also import other style files */
+*{
+  padding: 0;
+  margin: 0;
+    text-align: center;
+    font-family: 'Varela Round', sans-serif;
+    box-sizing: border-box;
+    
+}
+body{
+  max-width: 320px;
+  margin: 0 auto;
+  
+}
+li{list-style: none;}
+
+button{
+  padding: 3px;
+  border: 1px solid black;
+  border-radius: 5px;
+  background: black;
+  color:#277553;
+  margin: 2px;
+  cursor: pointer;
+}
+button:hover{
+  background-color: #c2e7d7e5;
+}

@@ -1,0 +1,28 @@
+<article>
+
+ <div>
+  <p>Pagamento </p>
+  <span (click)="backToCart()">X</span>
+ </div>
+ <form (submit)="checkUser($event)" >
+    <label for="numbercard">Numero carta</label>
+    <input 
+     type="string" [(ngModel)]="numbercard" name="numbercard" id="numbercard" value="" 
+     required placeholder="inserisci numero carta">
+
+    <label for="name">Nome</label>
+    <input type="text" [(ngModel)]="name" name="name" id="name" value="" required placeholder="inserisci il tuo nome"> 
+    
+
+    <label for="surname">Cognome</label>
+    <input type="text" [(ngModel)]="surname" name="surname"  id="surname" value="" required placeholder="inserisci il tuo cognome">
+
+    <label for="adress">Indirizzo</label>
+    <input type="text" [(ngModel)]="address" name="address" id="address" value="" required placeholder="inserisci il tuo indirizzo">
+    <p class="error" [className]="payCompleted===false? 'error' : 'true' ">{{msgError}}</p>
+
+    <p id="tot">{{totale}}$</p>
+    <input type="submit" name="" id="send" value="paga">
+ </form>
+
+</article>

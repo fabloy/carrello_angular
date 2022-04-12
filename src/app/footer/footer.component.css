@@ -1,0 +1,9 @@
+footer{
+    width: 100%;
+    background-color:red;
+    height: 10vh;
+    bottom: 0;
+    background-color:#277553;
+    border-top: #c2e7d7e5 solid 2px;
+    margin-top: 20px;
+}

@@ -1,0 +1,53 @@
+<nav>
+    
+    <div><i style="font-size: 100px; color: white;" class="fab fa-angrycreative"></i></div>
+</nav>
+
+
+<article *ngIf="!isCartVisible && !isPayCardClicked ">
+<div style="width: 100%;">
+ <ul>
+  <li style="font-size: 1.3rem;" *ngFor="let pizza of prodotti" >{{pizza.name}} <br> 
+    <button (click)="aggiungiProdotto(pizza)" *ngIf="!pizza.add">
+         <i class="fas fa-shopping-cart"></i>
+        {{pizza.prezzo}}$ 
+    </button> 
+    <span style="color: #277553; font-size: .8rem;" *ngIf="pizza.add">
+        Prodotto aggiunto
+    </span> 
+ </li>
+ </ul>
+ 
+</div>
+
+</article>
+
+<div id="carrelloBottom" [className]="isCartVisible? 'carrelloBottom' : 'carrelloBottom2' "> 
+    <!-- [ngStyle]="{'background-color': isCartVisible? '#c2e7d7e5' : '#277553'}" -->
+    <p id="msgCarrelloVuoto" *ngIf="prodottiAggiunti.length==0">Aggiungi i prodotti al <i class="fas fa-shopping-cart"></i> e ricevi il tuo 
+        <strong style="display: block; margin-bottom: 5px;">"Angry creative"</strong>
+    </p>
+    <span *ngIf="prodottiAggiunti.length>0 " style="font-size: 1.2rem" >
+        <i class="fas fa-shopping-cart" style="margin-top: 10px;"></i> {{totaleCarrello}}$<br>
+        <button *ngIf="!isPayCardVisible" id="goToCart" (click)="goToCart()">Vai al carrello</button>
+        <button *ngIf="isPayCardVisible" (click)="goToPay()">Vai al pagamento</button>
+    </span>
+    
+</div>
+
+<button *ngIf="isCartVisible" (click)="goToMenu()" style="width: auto; margin: 0 0;">Torna al menu <i class="fas fa-undo-alt"></i></button>
+
+<app-lista *ngIf="isCartVisible"
+ [nuovoProdotto]="prodotto"
+ [prodottiAggiunti]="prodottiAggiunti"
+ (eliminazioneEvent)="deleteProdotto($event)"
+ (aumentaQuantitaEvent)="aumenta($event)"
+ (diminuisciQuantitaEvent)="diminuisci($event)">
+
+</app-lista>
+<app-paycard
+ [totale]="totaleCarrello"
+ (backToCartEvent)="backToCart($event)" 
+ *ngIf="isPayCardClicked">
+</app-paycard>
+<router-outlet></router-outlet>

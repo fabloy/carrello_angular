@@ -1,0 +1,20 @@
+
+<div> 
+    
+    <ul>
+       
+        <li *ngFor="let prodottoAggiunto of prodottiAggiunti">
+            <p>{{prodottoAggiunto.name}}</p>
+          <button (click)="aumentaQuantita(prodottoAggiunto)">+</button>
+          <button (click)="diminuisciQuantita(prodottoAggiunto)">-</button >
+          <input value="{{prodottoAggiunto.qty}}">
+          <button (click)="elimina(prodottoAggiunto)">Remove</button> 
+         </li>
+
+        
+    </ul>
+    
+    
+</div>
+
+
